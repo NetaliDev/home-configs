@@ -48,11 +48,11 @@
       local opts = {noremap = true, silent = true}
 
       -- Move to previous/next
-      map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
-      map('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
+      map('n', '<A-Left>', '<Cmd>BufferPrevious<CR>', opts)
+      map('n', '<A-Right>', '<Cmd>BufferNext<CR>', opts)
       -- Re-order to previous/next
-      map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-      map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+      map('n', '<A-S-Left>', '<Cmd>BufferMovePrevious<CR>', opts)
+      map('n', '<A-S-Right>', '<Cmd>BufferMoveNext<CR>', opts)
       -- Goto buffer in position...
       map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
       map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
@@ -162,7 +162,7 @@
       }
 
       require("toggleterm").setup {
-        open_mapping = { [[<A-Space>]], [[<C-Space>]] },
+        open_mapping = [[<A-Space>]],
         hide_numbers = true, -- hide the number column in toggleterm buffers
         shade_filetypes = {},
         autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
