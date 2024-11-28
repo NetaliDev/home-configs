@@ -1,6 +1,6 @@
 {
   outputs = { self }: {
-    homeConfigs.vim = import ./vim.nix;
-    homeConfigs.zsh = import ./zsh.nix;
+    homeConfigs.vim = import ./configs/vim.nix;
+    homeConfigs.zsh = import ./configs/zsh.nix;
   };
 }
