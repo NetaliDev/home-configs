@@ -267,24 +267,31 @@
       })
 
       -- Setup language servers.
-      local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup {}
-      lspconfig.nil_ls.setup {}
-      lspconfig.ltex.setup {
+      local lspconfig = vim.lsp.config
+      lspconfig["pyright"] = {}
+      lspconfig["nil_ls"] = {}
+      lspconfig["ltex"] = {
         settings = {
           ltex = {
-			language = "de-DE",
-		  },
+	    language = "de-DE",
+	  },
         },
       }
-      lspconfig.phpactor.setup {}
-      lspconfig.texlab.setup {}
-      lspconfig.rust_analyzer.setup {
+      lspconfig["phpactor"] = {}
+      lspconfig["texlab"] = {}
+      lspconfig["rust_analyzer"] = {
         -- Server-specific settings. See `:help lspconfig-setup`
         settings = {
           ['rust-analyzer'] = {},
         },
       }
+
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("nil_ls")
+      vim.lsp.enable("ltex")
+      vim.lsp.enable("phpactor")
+      vim.lsp.enable("texlab")
+      vim.lsp.enable("rust_analyzer")
 
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
