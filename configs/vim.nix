@@ -27,7 +27,6 @@
       vimtex
     ];
     extraPackages = with pkgs; [
-      ltex-ls
       nil
       phpactor
       rust-analyzer
@@ -270,13 +269,6 @@
       local lspconfig = vim.lsp.config
       lspconfig["pyright"] = {}
       lspconfig["nil_ls"] = {}
-      lspconfig["ltex"] = {
-        settings = {
-          ltex = {
-	    language = "de-DE",
-	  },
-        },
-      }
       lspconfig["phpactor"] = {}
       lspconfig["texlab"] = {}
       lspconfig["rust_analyzer"] = {
@@ -288,7 +280,6 @@
 
       vim.lsp.enable("pyright")
       vim.lsp.enable("nil_ls")
-      vim.lsp.enable("ltex")
       vim.lsp.enable("phpactor")
       vim.lsp.enable("texlab")
       vim.lsp.enable("rust_analyzer")
