@@ -6,6 +6,8 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
+    withRuby = true;
+    withPython3 = true;
     plugins = with pkgs.vimPlugins; [
       barbar-nvim
       cmp-nvim-lsp
@@ -15,7 +17,6 @@
       nvim-cmp
       nvim-lspconfig
       nvim-tree-lua
-      nvim-treesitter.withAllGrammars
       nvim-web-devicons
       toggleterm-nvim
       ultisnips
@@ -42,7 +43,7 @@
       set expandtab
       set encoding=utf-8
     '';
-    extraLuaConfig = ''
+    initLua = ''
       local map = vim.api.nvim_set_keymap
       local opts = {noremap = true, silent = true}
 
@@ -267,13 +268,6 @@
           { name = 'luasnip' },
         },
       }
-
-      require'nvim-treesitter.configs'.setup({
-        -- they are managed by nix
-        auto_install = false,
-        highlight = {enable = true},
-        indent = {enable = true}
-      })
 
       -- Setup language servers.
       local lspconfig = vim.lsp.config
